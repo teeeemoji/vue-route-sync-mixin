@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`initial data from url check if url is correct 1`] = `
+Object {
+  "c": "3__{\\"start\\":\\"1234567\\",\\"end\\":\\"12345678\\"}",
+  "d": "3__[1,2,3,\\"four\\"]",
+  "n": "2__ztabcd",
+  "pn": "1__1000",
+  "ps": "1__1000",
+  "s": "5__true",
+  "u": "3__[1,2,3,4,5,6,7]",
+}
+`;

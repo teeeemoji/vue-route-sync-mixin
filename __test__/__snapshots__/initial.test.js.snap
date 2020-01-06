@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`initial data from url initial array and object data 1`] = `
+Object {
+  "end": "654321",
+  "start": "123456",
+}
+`;
+
+exports[`initial data from url initial array and object data 2`] = `
+Array [
+  1,
+  2,
+  3,
+  "four",
+]
+`;
+
+exports[`initial data from url initial boolean data 1`] = `true`;
+
+exports[`initial data from url initial number data 1`] = `200`;
+
+exports[`initial data from url initial number data 2`] = `100`;
+
+exports[`initial data from url initial string data 1`] = `"ztc"`;
+
+exports[`initial data from url initial undefined data 1`] = `undefined`;

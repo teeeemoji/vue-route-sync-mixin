@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`initial data from url initial undefined data 1`] = `2000`;
+
+exports[`initial data from url initial undefined data 2`] = `1000`;
+
+exports[`initial data from url initial undefined data 3`] = `"ztcccc"`;
+
+exports[`initial data from url initial undefined data 4`] = `true`;
+
+exports[`initial data from url initial undefined data 5`] = `
+Array [
+  10,
+  20,
+  30,
+  "four",
+]
+`;
+
+exports[`initial data from url initial undefined data 6`] = `
+Object {
+  "end": "6543221",
+  "start": "1223456",
+}
+`;

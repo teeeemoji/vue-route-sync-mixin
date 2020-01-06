@@ -1,0 +1,115 @@
+{
+  "name": "vue-route-sync-mixin",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.esm.js",
+  "browser": "dist/umd/index.umd.js",
+  "scripts": {
+    "build": "rollup -c",
+    "prepublishOnly": "npm test",
+    "test": "jest",
+    "commit": "./node_modules/.bin/git-cz",
+    "cs": "./node_modules/.bin/eslint --fix .",
+    "doc": "documentation --github --markdown-toc=false readme src/index.js -a public -s \"API\" && git add README.md",
+    "changelog": "./node_modules/.bin/conventional-changelog -p angular -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
+    "version": "npm run changelog"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test && lint-staged",
+      "commit-msg": "commitlint -e $GIT_PARAMS"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teeeemoji/vue-route-sync-mixin.git"
+  },
+  "keywords": [],
+  "author": "teeeemoji <teeeemoji@163.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/teeeemoji/vue-route-sync-mixin/issues"
+  },
+  "homepage": "https://github.com/teeeemoji/vue-route-sync-mixin#readme",
+  "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/plugin-transform-modules-commonjs": "^7.7.5",
+    "@babel/preset-env": "^7.7.7",
+    "@commitlint/cli": "^8.3.4",
+    "@commitlint/config-conventional": "^7.1.2",
+    "@types/jest": "^24.0.19",
+    "@vue/test-utils": "^1.0.0-beta.30",
+    "autoroll": "^0.2.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^24.9.0",
+    "commitizen": "^4.0.3",
+    "conventional-changelog-cli": "^2.0.5",
+    "decimal.js-light": "^2.5.0",
+    "documentation": "^12.1.2",
+    "eslint": "^5.6.1",
+    "eslint-config-fbjs": "^3.1.1",
+    "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-flowtype": "^2.50.3",
+    "eslint-plugin-jsx-a11y": "^6.1.0",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-relay": "^0.0.24",
+    "husky": "^3.0.9",
+    "jest": "^24.9.0",
+    "lint-staged": "^7.3.0",
+    "rollup": "^1.25.1",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-terser": "^5.1.3",
+    "vue": "^2.6.11",
+    "vue-jest": "^3.0.5",
+    "vue-router": "^3.1.3"
+  },
+  "lint-staged": {
+    "*.js": [
+      "./node_modules/.bin/eslint --fix",
+      "git add "
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "src/*.js",
+      "!**/node_modules/**"
+    ],
+    "coverageDirectory": "coverage",
+    "testMatch": [
+      "**/__test{s,}__/*.(spec|test).js"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "vue"
+    ],
+    "transform": {
+      ".*\\.(js)$": "babel-jest",
+      ".*\\.(vue)$": "vue-jest"
+    },
+    "transformIgnorePatterns": [
+      "<rootDir>/node_modules/"
+    ],
+    "moduleNameMapper": {
+      "^@/(.*)$": "<rootDir>/src/$1"
+    }
+  },
+  "dependencies": {
+    "js-type-escape": "^1.0.0",
+    "object-property-extensions": "^1.0.0"
+  }
+}
