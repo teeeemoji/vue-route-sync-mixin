@@ -2,16 +2,19 @@ import {hasOwnProperty, safeGet, safeSet} from 'object-property-extensions'
 import {processEscapeStr2Value, processValue2EscapeStr} from 'js-type-escape/dist/umd/index.umd'
 
 export default class RouteSyncer {
-  /**
-   * @private
-   * @description Contains all registered keys for the entire Vue app, key => initial data type
-   */
-  _registerKeys = {}
 
-  /**
-   * @description key of the sync lock flag
-   */
-  syncLockKey = Symbol('route syncing lock flag key name')
+  constructor() {
+    /**
+     * @private
+     * @description Contains all registered keys for the entire Vue app, key => initial data type
+     */
+
+    this.registerKeys = {}
+    /**
+     * @description key of the sync lock flag
+     */
+    this.syncLockKey = Symbol('route syncing lock flag key name')
+  }
 
   /**
    * @description Synchronize information from data to the url according to options
@@ -66,7 +69,7 @@ export default class RouteSyncer {
   }
 
   initialSyncDataType(key, val) {
-    this._registerKeys[key] = typeof val
+    this.registerKeys[key] = typeof val
   }
 
   /**
@@ -77,11 +80,11 @@ export default class RouteSyncer {
     const opts = {...options}
     const keys = Object.keys(opts)
     keys.forEach(key => {
-      if (this._registerKeys[key]) {
+      if (this.registerKeys[key]) {
         delete opts[key]
         this.throwRegisterKeyError(key)
       } else {
-        this._registerKeys[key] = true
+        this.registerKeys[key] = true
       }
     })
     return opts
@@ -104,7 +107,7 @@ export default class RouteSyncer {
   }
 
   dropSyncKeys(keys) {
-    keys.forEach(key => (delete this._registerKeys[key]))
+    keys.forEach(key => (delete this.registerKeys[key]))
   }
 
   /**
