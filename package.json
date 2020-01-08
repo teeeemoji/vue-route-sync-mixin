@@ -7,7 +7,7 @@
   "browser": "dist/umd/index.umd.js",
   "scripts": {
     "build": "rollup -c",
-    "prepublishOnly": "npm test",
+    "prepublishOnly": "npm test && npm run build",
     "test": "jest",
     "commit": "./node_modules/.bin/git-cz",
     "cs": "./node_modules/.bin/eslint --fix .",
