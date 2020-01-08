@@ -102,7 +102,7 @@
       ".*\\.(vue)$": "vue-jest"
     },
     "transformIgnorePatterns": [
-      "<rootDir>/node_modules/"
+      "/node_modules/"
     ],
     "moduleNameMapper": {
       "^@/(.*)$": "<rootDir>/src/$1"
@@ -110,6 +110,6 @@
   },
   "dependencies": {
     "js-type-escape": "^1.0.0",
-    "object-property-extensions": "^1.0.0"
+    "object-property-extensions": "^1.0.1"
   }
 }

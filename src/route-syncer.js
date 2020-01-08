@@ -1,5 +1,5 @@
 import {hasOwnProperty, safeGet, safeSet} from 'object-property-extensions'
-import {processEscapeStr2Value, processValue2EscapeStr} from 'js-type-escape/dist/umd/index.umd'
+import {processEscapeStr2Value, processValue2EscapeStr} from 'js-type-escape'
 
 export default class RouteSyncer {
 
