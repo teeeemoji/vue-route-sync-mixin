@@ -32,13 +32,13 @@ $ npm install vue-route-sync-mixin
 
 Single File Component Example:
 
-```vue
+```diff
 <script>
-import {createRouteSyncMixin} from 'vue-route-sync-mixin'
++ import {createRouteSyncMixin} from 'vue-route-sync-mixin'
 
 export default {
   // initial url would be http://xxx/#/?ps=1__10&pn=1__1
-  mixins: [createRouteSyncMixin({ps: 'pagination.pageSize',pn: 'pagination.pageNum'})],
++ mixins: [createRouteSyncMixin({ps: 'pagination.pageSize',pn: 'pagination.pageNum'})],
   data() {
     return {
       pagination: {
