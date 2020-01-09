@@ -30,7 +30,7 @@ $ npm install vue-route-sync-mixin
 
 ## Usage
 
-Single File Component Example:
+### Single File Component Example:
 
 ```diff
 <script>
@@ -57,6 +57,8 @@ export default {
 
 ### createRouteSyncMixin
 
+[src/index.js:16-44](https://github.com/teeeemoji/vue-route-sync-mixin/blob/46c0fd0eebbc5bb7e97b38780a598ce63b6572d9/src/index.js#L16-L44 "Source code on GitHub")
+
 A series of mixins is automatically generated for the url synchronization function
 
 #### Parameters
@@ -68,9 +70,36 @@ A series of mixins is automatically generated for the url synchronization functi
 
 Returns **{}** A series of mixins
 
+### processEscapeStr2Value
+
+[src/index.js:54-54](https://github.com/teeeemoji/vue-route-sync-mixin/blob/46c0fd0eebbc5bb7e97b38780a598ce63b6572d9/src/index.js#L54-L54 "Source code on GitHub")
+
+-   **See: <https://www.npmjs.com/package/js-type-escape#processescapestr2value>**
+
+process escape string to value with its data type
+
+#### Parameters
+
+-   `str`  {string}
+
+Returns **([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) | any | [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined) \| [number](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number))** 
+
+### processValue2EscapeStr
+
+[src/index.js:64-64](https://github.com/teeeemoji/vue-route-sync-mixin/blob/46c0fd0eebbc5bb7e97b38780a598ce63b6572d9/src/index.js#L64-L64 "Source code on GitHub")
+
+-   **See: <https://www.npmjs.com/package/js-type-escape#processvalue2escapestr>**
+
+process value to escape string
+
+#### Parameters
+
+-   `val`  {any}
+
+Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+
 ## TODO
-- write demo
-- write documents
+-   write demo
 
 ## License
 

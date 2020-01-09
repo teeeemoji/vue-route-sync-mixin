@@ -13,7 +13,7 @@ import {createLocalVue, mount} from '@vue/test-utils'
 import VueRouter from 'vue-router'
 import Comp from './test-material/component.vue'
 import App from './test-material/app.vue'
-import EmptyComp from './test-material/empty.vue'
+import {processValue2EscapeStr} from '../index'
 
 describe('initial data from url', function () {
   jest.setTimeout(500)
@@ -34,17 +34,21 @@ describe('initial data from url', function () {
     })
     wrapper.vm.$router.push({
       query: {
-        ps: '1__1000',
-        pn: '1__2000',
-        n: '2__ztcccc',
-        c: '3__%7B"start"%3A"1223456","end"%3A"6543221"%7D',
-        d: '3__%5B10,20,30,"four"%5D',
-        u: '1__100',
-        s: '5__true',
-        a: '123123'
+        ps: processValue2EscapeStr(1000),
+        pn: processValue2EscapeStr(2000),
+        n: processValue2EscapeStr('ztcccc'),
+        c: processValue2EscapeStr({
+          start: "1223456",
+          end: "6543221"
+        }),
+        d: processValue2EscapeStr([10, 20, 30, 'four']),
+        u: processValue2EscapeStr(100),
+        s: processValue2EscapeStr(true),
+        a: processValue2EscapeStr('123123')
       }
     })
     comp = wrapper.vm.$refs.comp
+    return
   })
 
   afterAll(() => {

@@ -1,4 +1,5 @@
 import RouteSyncer from './route-syncer'
+import {processEscapeStr2Value as ps2v, processValue2EscapeStr as pv2s} from 'js-type-escape'
 
 const routeSyncer = new RouteSyncer()
 
@@ -41,3 +42,23 @@ export function createRouteSyncMixin(options) {
     watch
   }
 }
+
+/**
+ * @public
+ * @function processEscapeStr2Value
+ * @see https://www.npmjs.com/package/js-type-escape#processescapestr2value
+ * @description process escape string to value with its data type
+ * @param str {string}
+ * @returns {string|any|undefined|number}
+ */
+export const processEscapeStr2Value = ps2v
+
+/**
+ * @public
+ * @function processValue2EscapeStr
+ * @see https://www.npmjs.com/package/js-type-escape#processvalue2escapestr
+ * @description process value to escape string
+ * @param val {any}
+ * @returns {string}
+ */
+export const processValue2EscapeStr = pv2s
