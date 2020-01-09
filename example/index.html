@@ -2,9 +2,367 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="https://vuejs.org/images/icons/favicon-32x32.png">
+  <title>vue-route-sync-mixin</title>
+  <style>
+    html {
+      height: 100%;
+    }
+
+    body {
+      height: 100%;
+      font-family: Dosis, sans-serif;
+      background: linear-gradient(to left bottom, rgb(179, 255, 205) 0%, rgb(179, 218, 255) 100%)
+    }
+
+    .banner {
+      display: flex;
+      justify-content: center;
+      margin: 100px auto 0;
+    }
+
+    .banner img {
+      height: 70px;
+      width: 70px;
+      margin-right: 20px;
+    }
+
+    .title {
+      height: 70px;
+      line-height: 80px;
+    }
+
+    .subtitle {
+      text-align: center;
+    }
+
+    .subtitle .highlight {
+      color: #41b883;
+    }
+
+    .badges {
+      display: flex;
+      justify-content: center;
+      margin: 20px;
+    }
+
+    .badges img {
+      padding: 0 10px;
+    }
+
+    .table-wrapper {
+      padding: 0 20px 40px;
+      background: rgba(255, 255, 255, .3);
+      border-radius: 8px;
+      margin: 0 auto;
+    }
+
+    table {
+      margin: 0 auto;
+    }
+
+    th {
+      text-align: left;
+    }
+
+    td, th {
+      padding: 10px 20px 10px 0;
+    }
+
+    button, .button {
+      cursor: pointer;
+      border-radius: 4px;
+      padding: 10px;
+      font-family: Lato, sans-serif;
+      background: #41b883;
+      border: none;
+      border-bottom: 3px solid #266d4d;
+      outline: none;
+      vertical-align: middle;
+      color: #fff;
+      transition: background .1s ease, border-color .1s ease, color .1s ease;
+    }
+
+    button:hover, .button:hover {
+      background-color: #349268;
+    }
+
+    .footer {
+      margin-top: 10px;
+      text-align: left;
+    }
+
+    .gh-button {
+      text-decoration: none;
+      margin: 0 auto;
+      display: flex;
+      width: 250px;
+      align-items: center;
+      justify-content: center;
+      background-color: #374853;
+      border-bottom: 3px solid #0e1316;
+    }
+
+    .gh-button:hover {
+      background-color: #232d34;
+    }
+
+    .gh-button .gh-img {
+      width: 23px;
+      height: 28px;
+      margin-right: 10px;
+    }
+  </style>
+  <script src="https://unpkg.com/vue/dist/vue.js"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+  <script src="https://unpkg.com/vue-route-sync-mixin/dist/umd/index.umd.js"></script>
+  <script src="https://unpkg.com/mockjs/dist/mock.js"></script>
 </head>
 <body>
-
+<div id="app">
+  <router-view></router-view>
+</div>
+<script>
+const Example = {
+  template: `<div class="wrapper">
+    <div ref="first-page">
+      <h1 class="banner">
+        <img src="https://vuejs.org/images/logo.png" alt="">
+        <div class="title">
+          Vue route sync demo
+        </div>
+      </h1>
+      <h2 class="subtitle">
+        A DeepLinking solution implementation in
+        <a href="https://vuejs.org/" class="highlight">
+          Vue.js
+        </a>
+      </h2>
+      <div class="badges">
+        <img src="https://img.shields.io/travis/com/teeeemoji/vue-route-sync-mixin" alt="">
+        <img
+          src="https://img.shields.io/codecov/c/github/teeeemoji/vue-route-sync-mixin?token=8b1462035af64c20adae6bb75dd2cda6"
+          alt="">
+        <img src="https://img.shields.io/npm/v/vue-route-sync-mixin" alt="">
+        <img src="https://img.shields.io/npm/dy/vue-route-sync-mixin" alt="">
+        <img src="https://img.shields.io/bundlephobia/min/vue-route-sync-mixin?style=plastic"
+             alt="">
+        <img src="https://img.shields.io/github/last-commit/teeeemoji/vue-route-sync-mixin" alt="">
+        <img src="https://img.shields.io/npm/l/vue-route-sync-mixin" alt="">
+      </div>
+    </div>
+    <div class="table-wrapper">
+      <table class="table">
+        <tr class="example-block">
+          <th class="data-type">
+            type of data
+          </th>
+          <th class="vm-path">
+            path of data in vm
+          </th>
+          <th class="query-key">
+            query key in url of data
+          </th>
+          <th class="data-string">
+            data to string
+          </th>
+          <th class="ops">
+            ops
+          </th>
+        </tr>
+        <tr class="example-block">
+          <td class="data-type">
+            {{typeof pagination.pageSize}}
+          </td>
+          <td class="vm-path">
+            pagination.pageSize
+          </td>
+          <td class="query-key">
+            ps
+          </td>
+          <td class="data-string">
+            {{pagination.pageSize}}
+          </td>
+          <td class="ops">
+            <button @click="changePageSize">change</button>
+          </td>
+        </tr>
+        <tr class="example-block">
+          <td class="data-type">
+            {{typeof pagination.pageNum}}
+          </td>
+          <td class="vm-path">
+            pagination.pageNum
+          </td>
+          <td class="query-key">
+            pn
+          </td>
+          <td class="data-string">
+            {{pagination.pageNum}}
+          </td>
+          <td class="ops">
+            <button @click="changePageNum">change</button>
+          </td>
+        </tr>
+        <tr class="example-block">
+          <td class="data-type">
+            {{typeof name}}
+          </td>
+          <td class="vm-path">
+            name
+          </td>
+          <td class="query-key">
+            n
+          </td>
+          <td class="data-string">
+            {{name}}
+          </td>
+          <td class="ops">
+            <button @click="changeName">change</button>
+          </td>
+        </tr>
+        <tr class="example-block">
+          <td class="data-type">
+            {{typeof departments}}
+          </td>
+          <td class="vm-path">
+            departments
+          </td>
+          <td class="query-key">
+            d
+          </td>
+          <td class="data-string">
+            {{departments}}
+          </td>
+          <td class="ops">
+            <button @click="changeDepartments">change</button>
+          </td>
+        </tr>
+        <tr class="example-block">
+          <td class="data-type">
+            {{typeof createDate}}
+          </td>
+          <td class="vm-path">
+            createDate
+          </td>
+          <td class="query-key">
+            c
+          </td>
+          <td class="data-string">
+            {{createDate}}
+          </td>
+          <td class="ops">
+            <button @click="changeCreateDate">change</button>
+          </td>
+        </tr>
+        <tr class="example-block">
+          <td class="data-type">
+            {{typeof payed}}
+          </td>
+          <td class="vm-path">
+            payed
+          </td>
+          <td class="query-key">
+            p
+          </td>
+          <td class="data-string">
+            {{payed}}
+          </td>
+          <td class="ops">
+            <button @click="changePayed">change</button>
+          </td>
+        </tr>
+        <tr class="example-block">
+          <td class="data-type">
+            {{typeof pageData.count}}
+          </td>
+          <td class="vm-path">
+            pageData.count
+          </td>
+          <td class="query-key">
+            pdc
+          </td>
+          <td class="data-string">
+            {{pageData.count}}
+          </td>
+          <td class="ops">
+            <button @click="changePageDataCount">change</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="footer">
+      <a href="https://github.com/teeeemoji/vue-route-sync-mixin" class="button gh-button">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"
+             alt="" class="gh-img">
+        View on GitHub
+      </a>
+    </div>
+  </div>`,
+  mixins: [RouteSync.createRouteSyncMixin({
+    ps: 'pagination.pageSize',
+    pn: 'pagination.pageNum',
+    n: 'name',
+    d: 'departments',
+    c: 'createDate',
+    p: 'payed',
+    pdc: 'pageData.count',
+    u: 'und'
+  })],
+  data() {
+    return {
+      pageData: {
+        count: 0
+      },
+      pagination: {
+        pageSize: 10,
+        pageNum: 1
+      },
+      name: '',
+      payed: false,
+      departments: [],
+      createDate: {
+        start: '',
+        end: ''
+      },
+      und: undefined
+    }
+  },
+  methods: {
+    changePageSize() {
+      this.pagination.pageSize = Mock.Random.integer(0, 100)
+    },
+    changePageNum() {
+      this.pagination.pageNum = Mock.Random.integer(0, 100)
+    },
+    changeName() {
+      this.name = Mock.Random.cword(1, 2)
+    },
+    changeDepartments() {
+      this.departments = Mock.Random.range(Mock.Random.natural(0, 8))
+        .map(() => Mock.Random.word(1))
+    },
+    changeCreateDate() {
+      this.createDate = {
+        start: Mock.Random.date(),
+        end: Mock.Random.date()
+      }
+    },
+    changePayed() {
+      this.payed = !this.payed
+    },
+    changePageDataCount() {
+      this.pageData.count = Mock.Random.integer(0, 100)
+    }
+  }
+}
+new Vue({
+  router: new VueRouter({
+    routes: [
+      {path: '/', component: Example}
+    ]
+  })
+}).$mount('#app')
+</script>
 </body>
 </html>

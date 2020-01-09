@@ -159,7 +159,6 @@ export default class RouteSyncer {
   getSubFromData(vm, keys, options) {
     const sub = {}
     keys.forEach(key => {
-      console.log(vm, key, options)
       sub[key] = processValue2EscapeStr(safeGet(vm, options[key]))
     })
     return sub

@@ -1,7 +1,7 @@
 {
   "name": "vue-route-sync-mixin",
   "version": "1.0.2",
-  "description": "",
+  "description": "A DeepLinking solution implementation in Vue",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.esm.js",
   "browser": "dist/umd/index.umd.js",
