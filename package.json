@@ -109,7 +109,7 @@
     }
   },
   "dependencies": {
-    "js-type-escape": "^1.0.0",
+    "js-type-escape": "^1.0.1",
     "object-property-extensions": "^1.0.1"
   }
 }
