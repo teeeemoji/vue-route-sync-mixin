@@ -39,8 +39,8 @@ describe('initial data from url', function () {
       smoke: true,
       departments: [1, 2, 3, 'four'],
       createDate: {
-        start: '1234567',
-        end: '12345678'
+        start: '1067385600000',
+        end: '322790400000'
       },
       und: [1, 2, 3, 4, 5, 6, 7]
     })

@@ -2,7 +2,7 @@
 
 exports[`initial data from url check if url is correct 1`] = `
 Object {
-  "c": "3__{\\"start\\":\\"1234567\\",\\"end\\":\\"12345678\\"}",
+  "c": "3__{\\"start\\":\\"1067385600000\\",\\"end\\":\\"322790400000\\"}",
   "d": "3__[1,2,3,\\"four\\"]",
   "n": "2__ztabcd",
   "pn": "1__1000",

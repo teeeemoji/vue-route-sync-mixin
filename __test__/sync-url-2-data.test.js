@@ -38,8 +38,8 @@ describe('initial data from url', function () {
         pn: processValue2EscapeStr(2000),
         n: processValue2EscapeStr('ztcccc'),
         c: processValue2EscapeStr({
-          start: "1223456",
-          end: "6543221"
+          start: '1067385600000',
+          end: '322790400000'
         }),
         d: processValue2EscapeStr([10, 20, 30, 'four']),
         u: processValue2EscapeStr(100),
